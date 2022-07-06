@@ -3,16 +3,27 @@ GET   http://localhost:8000/
 
 
 ### fetch all task 
-GET  http://localhost:8000/api/v1/task
+GET  http://localhost:8000/api/v1/task/
 
 
 ### add new task
 
 POST http://localhost:8000/api/v1/task
+Content-Type: application/json
+
+{
+    "task":"coding",
+    "hr": 100
+}
 
 ### update or switch task
 PATCH  http://localhost:8000/api/v1/task
 
 
 ### delete the task
-DELETE  http://localhost:8000/api/v1/task
+DELETE  http://localhost:8000/api/v1/task/
+Content-Type: application/json
+
+{
+   "_id":1
+}
