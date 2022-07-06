@@ -1,0 +1,8 @@
+### root api
+GET http://localhost:8000/api/v1/task
+
+### root api 
+POST  http://localhost:8000/api/v1/task
+
+### root api 
+GET   http://localhost:8000/
