@@ -31,9 +31,11 @@ router.get("/:_id?", (req, res, next) => {
   }
 });
 
+////POST
+
 router.post("/", (req, res, next) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
     //call db query to the store
     fakeDB.push(req.body);
     res.json({
@@ -45,6 +47,8 @@ router.post("/", (req, res, next) => {
     next(error);
   }
 });
+
+//////PATCH
 router.patch("/", (req, res, next) => {
   try {
     res.json({
@@ -56,6 +60,8 @@ router.patch("/", (req, res, next) => {
     next(error);
   }
 });
+
+/////DELETE
 router.delete("/", (req, res, next) => {
   try {
     const { _id } = req.body;
