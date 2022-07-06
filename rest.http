@@ -1,8 +1,18 @@
 ### root api
-GET http://localhost:8000/api/v1/task
-
-### root api 
-POST  http://localhost:8000/api/v1/task
-
-### root api 
 GET   http://localhost:8000/
+
+
+### fetch all task 
+GET  http://localhost:8000/api/v1/task
+
+
+### add new task
+
+POST http://localhost:8000/api/v1/task
+
+### update or switch task
+PATCH  http://localhost:8000/api/v1/task
+
+
+### delete the task
+DELETE  http://localhost:8000/api/v1/task
