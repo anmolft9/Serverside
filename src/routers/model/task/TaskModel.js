@@ -2,7 +2,7 @@ import TaskSchema from "./TaskSchema.js";
 
 //insert query
 export const insertTask = (taskObj) => {
-  TaskSchema();
+  return TaskSchema(taskObj).save();
 };
 //select query
 

@@ -1,4 +1,5 @@
 import express from "express";
+import { insertTask } from "./model/task/TaskModel.js";
 
 const router = express.Router();
 
@@ -32,15 +33,17 @@ router.get("/:_id?", (req, res, next) => {
 });
 
 ////POST
-
-router.post("/", (req, res, next) => {
+router.post("/", async (req, res, next) => {
   try {
     // console.log(req.body);
     //call db query to the store
-    fakeDB.push(req.body);
+    // fakeDB.push(req.body);
+    const result = await insertTask(req.body);
+    console.log(result);
     res.json({
       status: "success",
       message: "you hit the post root route",
+      result,
     });
   } catch (error) {
     error.status = 500;
