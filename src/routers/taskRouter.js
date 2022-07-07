@@ -1,5 +1,10 @@
 import express from "express";
-import { getSingleTask, getTask, insertTask } from "./model/task/TaskModel.js";
+import {
+  getSingleTask,
+  getTask,
+  insertTask,
+  deleteTask,
+} from "./model/task/TaskModel.js";
 
 const router = express.Router();
 
@@ -61,7 +66,7 @@ router.patch("/", (req, res, next) => {
 });
 
 /////DELETE
-router.delete("/", (req, res, next) => {
+router.delete("/", async (req, res, next) => {
   try {
     // const { _id } = req.body;
 
@@ -70,6 +75,11 @@ router.delete("/", (req, res, next) => {
     // // if (_id) {
     // //   data = fakeDB.filter((item) => item._id === +_id);
     // // }
+
+    const { _id } = req.body;
+    // console.log(_id);
+    const result = _id ? await deleteTask(_id) : console.log("doesnot exist");
+    // console.log(result);
 
     res.json({
       status: "success",

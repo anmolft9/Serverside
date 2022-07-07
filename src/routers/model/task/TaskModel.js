@@ -15,3 +15,6 @@ export const getSingleTask = (_id) => {
 //update query
 
 //delete query
+export const deleteTask = (_id) => {
+  return TaskSchema.findOneAndDelete(_id);
+};

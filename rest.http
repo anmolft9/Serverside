@@ -3,7 +3,7 @@ GET   http://localhost:8000/
 
 
 ### fetch all task 
-GET  http://localhost:8000/api/v1/task/62c66a8900d20da235f48de5
+GET  http://localhost:8000/api/v1/task/
 Content-Type: application/json
 
 
@@ -23,5 +23,5 @@ DELETE  http://localhost:8000/api/v1/task/
 Content-Type: application/json
 
 {
-   "_id":1
+   "_id":"62c66a9400d20da235f48d"
 }
