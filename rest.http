@@ -12,6 +12,11 @@ Content-Type: application/json
 POST http://localhost:8000/api/v1/task
 Content-Type: application/json
 
+{
+   "task": "coding",
+   "hr": "10"
+}
+
 
 
 ### update or switch task
@@ -31,7 +36,8 @@ Content-Type: application/json
 {
    "ids":
    [
-      "62c670f5457a079e8608b2fa",
-   "62cd5d3c2ffbefe4480618d7"
+     
+
+
    ]
 }

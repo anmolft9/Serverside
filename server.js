@@ -1,10 +1,15 @@
 import express, { Router } from "express";
+import helmet from "helmet";
+import cors from "cors";
+
 const app = express();
 
 const PORT = 8000;
 
 //middlewares
 app.use(express.json());
+app.use(helmet()); ///to protect against theft of cookies
+app.use(cors()); // lets us use multi server
 
 ///db connect
 import { dbConnect } from "./src/routers/config/dbConfig.js";
