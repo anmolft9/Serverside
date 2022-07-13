@@ -89,7 +89,7 @@ router.delete("/", async (req, res, next) => {
     //   ? await deleteTask(_id)
     //   : console.log("id doesnot exist");
 
-    const { ids } = req.body;
+    const ids = req.body;
     const result = await deleteTask(ids);
 
     // console.log(result);
