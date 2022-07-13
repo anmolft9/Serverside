@@ -16,6 +16,12 @@ Content-Type: application/json
 
 ### update or switch task
 PATCH  http://localhost:8000/api/v1/task
+Content-Type: application/json
+
+{
+   "_id": "62c670f5457a079e8608b2fa",
+   "type": "entry"
+}
 
 
 ### delete the task
@@ -23,5 +29,9 @@ DELETE  http://localhost:8000/api/v1/task/
 Content-Type: application/json
 
 {
-   "_id":"62c66a9400d20da235f48d"
+   "ids":
+   [
+      "62c670f5457a079e8608b2fa",
+   "62cd5d3c2ffbefe4480618d7"
+   ]
 }

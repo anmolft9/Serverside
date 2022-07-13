@@ -13,8 +13,19 @@ export const getSingleTask = (_id) => {
 };
 
 //update query
+export const updateTask = (_id, type) => {
+  return TaskSchema.findByIdAndUpdate(_id, { type }, { new: true });
+};
 
+//delete one query
+export const deleteTaskById = (_id) => {
+  return TaskSchema.findByIdAndDelete(_id);
+};
 //delete query
-export const deleteTask = (_id) => {
-  return TaskSchema.findOneAndDelete(_id);
+export const deleteTask = (ids) => {
+  return TaskSchema.deleteMany({
+    _id: {
+      $in: ids,
+    },
+  });
 };

@@ -4,6 +4,7 @@ import {
   getTask,
   insertTask,
   deleteTask,
+  updateTask,
 } from "./model/task/TaskModel.js";
 
 const router = express.Router();
@@ -53,11 +54,19 @@ router.post("/", async (req, res, next) => {
 });
 
 //////PATCH
-router.patch("/", (req, res, next) => {
+router.patch("/", async (req, res, next) => {
   try {
+    //
+    // console.log(req.body);
+    const { _id, type } = req.body;
+
+    const result = await updateTask(_id, type);
+    // console.log(result);
+
     res.json({
       status: "success",
       message: "you hit the post patch route",
+      result,
     });
   } catch (error) {
     error.status = 500;
@@ -69,23 +78,21 @@ router.patch("/", (req, res, next) => {
 router.delete("/", async (req, res, next) => {
   try {
     // const { _id } = req.body;
+    // delete single item
+    // const { _id } = req.params;
+    // const result = _id
+    //   ? await deleteTask(_id)
+    //   : console.log("id doesnot exist");
 
-    // let filteredArg = fakeDB.filter((item) => item?._id !== +_id);
-    // fakeDB = filteredArg;
-    // // if (_id) {
-    // //   data = fakeDB.filter((item) => item._id === +_id);
-    // // }
+    const { ids } = req.body;
+    const result = await deleteTask(ids);
 
-    const { _id } = req.body;
-    // console.log(_id);
-    const result = _id
-      ? await deleteTask(_id)
-      : console.log("id doesnot exist");
     // console.log(result);
 
     res.json({
       status: "success",
       message: "you hit the post delete route",
+      result,
     });
   } catch (error) {
     error.status = 500;
