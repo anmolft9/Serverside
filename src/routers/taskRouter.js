@@ -42,13 +42,18 @@ router.post("/", async (req, res, next) => {
     // fakeDB.push(req.body);
     const result = await insertTask(req.body);
     console.log(result);
-    res.json({
-      status: "success",
-      message: "you hit the post root route",
-      result,
-    });
+
+    result?._id
+      ? res.json({
+          status: "success",
+          message: "success",
+        })
+      : res.json({
+          status: "failed",
+          message: "failed",
+          result,
+        });
   } catch (error) {
-    error.status = 500;
     next(error);
   }
 });
